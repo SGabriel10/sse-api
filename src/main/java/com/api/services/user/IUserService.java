@@ -1,7 +1,5 @@
 package com.api.services.user;
 
-import com.api.dtos.student.StudentDTO;
-import com.api.dtos.student.StudentResult;
 import com.api.dtos.user.UserDTO;
 import com.api.dtos.user.UserResult;
 import com.api.services.base.IBaseService;

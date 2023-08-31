@@ -45,7 +45,7 @@ public class PersistenceJPAConfig {
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/db_university");
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/db_sse");
         dataSource.setUsername("postgres");
         dataSource.setPassword("1234");
         return dataSource;
@@ -71,5 +71,6 @@ public class PersistenceJPAConfig {
 
         return properties;
     }
+
 
 }
