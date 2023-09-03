@@ -1,8 +1,11 @@
 package com.api.domains.user;
 
 import com.api.domains.base.BaseDomain;
+import com.api.domains.role.RoleDomain;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="users")
@@ -27,6 +30,28 @@ public class UserDomain implements BaseDomain {
 
     @Column(name="semester")
     private String _semester;
+    @ManyToMany
+    @JoinTable(
+            name = "user_role",
+            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")})
+    private Set<RoleDomain> _roles = new HashSet<RoleDomain>();
+
+    public Set<RoleDomain> getRoles() {
+        return _roles;
+    }
+    public void setRoles(Set<RoleDomain> roles) {
+        _roles = roles;
+    }
+
+    @Column(name="password")
+    private String _password;
+
+    @Column(name="accountLocked")
+    private Boolean _accountLocked;
+
+    @Column(name="correo", unique = true)
+    private String correo;
 
     public Integer getId(){return _id;}
     public String getName(){return _name;}
@@ -48,5 +73,17 @@ public class UserDomain implements BaseDomain {
     public String getSemester(){return _semester;}
 
     public void setSemester(String semester){_semester=semester;}
+    public String getPassword() {
+        return _password;
+    }
+    public void setPassword(String password) {
+        _password = password;
+    }
 
+    public Boolean getAccountLocked() {
+        return _accountLocked;
+    }
+    public void setAccountLocked(Boolean accountLocked) {
+        _accountLocked = accountLocked;
+    }
 }

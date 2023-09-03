@@ -1,4 +1,4 @@
-package com.api.daos;
+package com.api.daos.user;
 
 import com.api.domains.user.UserDomain;
 import org.springframework.data.repository.PagingAndSortingRepository;

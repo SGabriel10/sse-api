@@ -3,6 +3,7 @@ package com.api.dtos.user;
 import com.api.dtos.base.BaseDTO;
 
 import javax.xml.bind.annotation.XmlElement;
+import java.util.List;
 
 
 public class UserDTO extends BaseDTO {
@@ -17,6 +18,17 @@ public class UserDTO extends BaseDTO {
 
     private String _semester;
 
+    private String _password;
+    private Boolean _accountLocked;
+    private List<Integer> _rolesId;
+
+    @XmlElement
+    public List<Integer> getRolesId() {
+        return _rolesId;
+    }
+    public void setRolesId(List<Integer> rolesId) {
+        _rolesId = rolesId;
+    }
     public Integer getId() {
         return _id;
     }
@@ -55,5 +67,19 @@ public class UserDTO extends BaseDTO {
 
     public void setSemester(String semester){_semester=semester;}
 
+    @XmlElement
+    public String getPassword() {
+        return _password;
+    }
+    public void setPassword(String password) {
+        _password = password;
+    }
 
+    @XmlElement
+    public Boolean getAccountLocked() {
+        return _accountLocked;
+    }
+    public void setAccountLocked(Boolean accountLocked) {
+        _accountLocked = accountLocked;
+    }
 }

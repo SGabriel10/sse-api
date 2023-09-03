@@ -1,6 +1,6 @@
 package com.api.services.user;
 
-import com.api.daos.IUserDao;
+import com.api.daos.user.IUserDao;
 import com.api.domains.user.UserDomain;
 import com.api.dtos.user.UserDTO;
 import com.api.dtos.user.UserResult;
@@ -31,6 +31,8 @@ public class UserServiceImpl extends BaseServiceImpl<UserDTO, UserDomain, UserRe
             dto.setEmail(domain.getEmail());
             dto.setPhone(domain.getPhone());
             dto.setSemester(domain.getSemester());
+            dto.setPassword(domain.getPassword());
+            dto.setAccountLocked(domain.getAccountLocked());
             return dto;
         }catch(NullPointerException exc) {
             throw new ResponseStatusException(
@@ -47,6 +49,8 @@ public class UserServiceImpl extends BaseServiceImpl<UserDTO, UserDomain, UserRe
             domain.setEmail(dto.getEmail());
             domain.setPhone(dto.getPhone());
             domain.setSemester(dto.getSemester());
+            domain.setAccountLocked(dto.getAccountLocked());
+            domain.setPassword(dto.getPassword());
             return domain;
         }catch(NullPointerException exc) {
           throw new ResponseStatusException(
